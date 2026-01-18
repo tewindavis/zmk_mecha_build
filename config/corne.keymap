@@ -9,7 +9,24 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-        keymap {
+ behaviors {
+   
+
+    hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;    // This is your 300ms delay
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";   // Prioritizes the tap if released quickly
+            bindings = <&kp>, <&kp>;
+
+            require-prior-idle-ms = <150>;
+        };
+    };
+
+
+
+    keymap {
                 compatible = "zmk,keymap";
                 default_layer {
 // -----------------------------------------------------------------------------------------
